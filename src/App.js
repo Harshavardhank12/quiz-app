@@ -12,7 +12,6 @@ const AdvancedQuizApp = () => {
   const [bestStreak, setBestStreak] = useState(0);
   const [difficulty, setDifficulty] = useState('medium');
   const [showAnswer, setShowAnswer] = useState(false);
-  const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [usedQuestions, setUsedQuestions] = useState(new Set());
   const timerRef = useRef(null);
@@ -569,6 +568,15 @@ const AdvancedQuizApp = () => {
   };
   // Timer effect
   useEffect(() => {
+    const handleTimeout = () => {
+      playSound(false);
+      setStreak(0);
+      setShowAnswer(true);
+      setTimeout(() => {
+        nextQuestion();
+      }, 3000);
+    };
+
     if (gameState === 'playing' && timeLeft > 0 && !showAnswer) {
       timerRef.current = setTimeout(() => {
         setTimeLeft(timeLeft - 1);
@@ -577,16 +585,7 @@ const AdvancedQuizApp = () => {
       handleTimeout();
     }
     return () => clearTimeout(timerRef.current);
-  }, [timeLeft, gameState, showAnswer]);
-
-  const handleTimeout = () => {
-    playSound(false);
-    setStreak(0);
-    setShowAnswer(true);
-    setTimeout(() => {
-      nextQuestion();
-    }, 3000);
-  };
+  }, [timeLeft, gameState, showAnswer]); // Remove the separate handleTimeout function definition
 
   const getRandomQuestion = () => {
     const availableQuestions = questionPool.filter(q => !usedQuestions.has(q.question));
