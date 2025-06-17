@@ -567,6 +567,7 @@ const AdvancedQuizApp = () => {
     }
   };
   // Timer effect
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const handleTimeout = () => {
       playSound(false);
