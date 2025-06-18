@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Brain, Trophy, Clock, Zap, ChevronRight, RotateCcw, Star, Target, Flame } from 'lucide-react';
 
 const AdvancedQuizApp = () => {
@@ -19,451 +19,451 @@ const AdvancedQuizApp = () => {
 
   // Balanced question pool with medium to medium-high complexity
     // Comprehensive question pool with multiple sets for medium and hard difficulty
-  const questionPool = [
-    // Medium Set 1 - Original
-    {
-      question: "What programming language was originally called 'Oak' before being renamed?",
-      options: ["Python", "Java", "C++", "JavaScript"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Java was originally called 'Oak' when it was developed by Sun Microsystems in the early 1990s."
-    },
-    {
-      question: "Which planet in our solar system has the most moons?",
-      options: ["Jupiter", "Saturn", "Neptune", "Uranus"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Saturn has the most confirmed moons with over 80 satellites orbiting around it."
-    },
-    {
-      question: "What does 'HTTP' stand for in web addresses?",
-      options: ["HyperText Transfer Protocol", "High Tech Transfer Process", "HyperText Transmission Protocol", "Home Transfer Text Protocol"],
-      correct: 0,
-      difficulty: "medium",
-      explanation: "HTTP stands for HyperText Transfer Protocol, the foundation of data communication on the web."
-    },
-    {
-      question: "Which chemical element has the symbol 'Au'?",
-      options: ["Silver", "Aluminum", "Gold", "Argon"],
-      correct: 2,
-      difficulty: "medium",
-      explanation: "Gold has the chemical symbol 'Au' which comes from the Latin word 'aurum' meaning gold."
-    },
-    {
-      question: "What is the term for a word that reads the same forwards and backwards?",
-      options: ["Anagram", "Palindrome", "Homophone", "Synonym"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "A palindrome is a word, phrase, or sequence that reads the same backward as forward, like 'radar' or 'level'."
-    },
+  const questionPool = useMemo(() => [
+  // Medium Set 1 - Original
+  {
+    question: "What programming language was originally called 'Oak' before being renamed?",
+    options: ["Python", "Java", "C++", "JavaScript"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Java was originally called 'Oak' when it was developed by Sun Microsystems in the early 1990s."
+  },
+  {
+    question: "Which planet in our solar system has the most moons?",
+    options: ["Jupiter", "Saturn", "Neptune", "Uranus"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Saturn has the most confirmed moons with over 80 satellites orbiting around it."
+  },
+  {
+    question: "What does 'HTTP' stand for in web addresses?",
+    options: ["HyperText Transfer Protocol", "High Tech Transfer Process", "HyperText Transmission Protocol", "Home Transfer Text Protocol"],
+    correct: 0,
+    difficulty: "medium",
+    explanation: "HTTP stands for HyperText Transfer Protocol, the foundation of data communication on the web."
+  },
+  {
+    question: "Which chemical element has the symbol 'Au'?",
+    options: ["Silver", "Aluminum", "Gold", "Argon"],
+    correct: 2,
+    difficulty: "medium",
+    explanation: "Gold has the chemical symbol 'Au' which comes from the Latin word 'aurum' meaning gold."
+  },
+  {
+    question: "What is the term for a word that reads the same forwards and backwards?",
+    options: ["Anagram", "Palindrome", "Homophone", "Synonym"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "A palindrome is a word, phrase, or sequence that reads the same backward as forward, like 'radar' or 'level'."
+  },
 
-    // Medium Set 2 - Technology & Computing
-    {
-      question: "Which design pattern ensures only one instance of a class exists?",
-      options: ["Factory", "Singleton", "Observer", "Strategy"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "The Singleton pattern ensures that only one instance of a class is created and provides global access to it."
-    },
-    {
-      question: "What is the primary purpose of a compiler?",
-      options: ["Execute code", "Debug programs", "Translate source code to machine code", "Manage memory"],
-      correct: 2,
-      difficulty: "medium",
-      explanation: "A compiler translates high-level source code into machine code that can be executed by the computer's processor."
-    },
-    {
-      question: "Which database concept ensures data integrity through relationships?",
-      options: ["Indexing", "Normalization", "Encryption", "Backup"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Normalization is the process of organizing data to reduce redundancy and improve data integrity through proper relationships."
-    },
-    {
-      question: "What does 'API' stand for in software development?",
-      options: ["Application Programming Interface", "Advanced Programming Integration", "Automated Program Interpreter", "Application Process Interface"],
-      correct: 0,
-      difficulty: "medium",
-      explanation: "API stands for Application Programming Interface, which defines how software components communicate with each other."
-    },
-    {
-      question: "Which networking model has 7 layers?",
-      options: ["TCP/IP Model", "OSI Model", "Internet Model", "Ethernet Model"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "The OSI (Open Systems Interconnection) model has 7 layers, from Physical to Application layer."
-    },
+  // Medium Set 2 - Technology & Computing
+  {
+    question: "Which design pattern ensures only one instance of a class exists?",
+    options: ["Factory", "Singleton", "Observer", "Strategy"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "The Singleton pattern ensures that only one instance of a class is created and provides global access to it."
+  },
+  {
+    question: "What is the primary purpose of a compiler?",
+    options: ["Execute code", "Debug programs", "Translate source code to machine code", "Manage memory"],
+    correct: 2,
+    difficulty: "medium",
+    explanation: "A compiler translates high-level source code into machine code that can be executed by the computer's processor."
+  },
+  {
+    question: "Which database concept ensures data integrity through relationships?",
+    options: ["Indexing", "Normalization", "Encryption", "Backup"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Normalization is the process of organizing data to reduce redundancy and improve data integrity through proper relationships."
+  },
+  {
+    question: "What does 'API' stand for in software development?",
+    options: ["Application Programming Interface", "Advanced Programming Integration", "Automated Program Interpreter", "Application Process Interface"],
+    correct: 0,
+    difficulty: "medium",
+    explanation: "API stands for Application Programming Interface, which defines how software components communicate with each other."
+  },
+  {
+    question: "Which networking model has 7 layers?",
+    options: ["TCP/IP Model", "OSI Model", "Internet Model", "Ethernet Model"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "The OSI (Open Systems Interconnection) model has 7 layers, from Physical to Application layer."
+  },
 
-    // Medium Set 3 - Science & Nature
-    {
-      question: "What is the process by which plants convert sunlight into energy?",
-      options: ["Respiration", "Photosynthesis", "Osmosis", "Transpiration"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Photosynthesis is the process where plants use sunlight, carbon dioxide, and water to create glucose and oxygen."
-    },
-    {
-      question: "Which blood type is considered the universal donor?",
-      options: ["A+", "AB+", "O-", "B-"],
-      correct: 2,
-      difficulty: "medium",
-      explanation: "O- blood type is the universal donor because it lacks A, B, and Rh antigens, making it compatible with all blood types."
-    },
-    {
-      question: "What is the speed of light in a vacuum?",
-      options: ["299,792,458 m/s", "300,000,000 m/s", "186,000 miles/s", "All of the above"],
-      correct: 0,
-      difficulty: "medium",
-      explanation: "The speed of light in vacuum is exactly 299,792,458 meters per second, which is approximately 300,000 km/s or 186,000 miles/s."
-    },
-    {
-      question: "Which organ system is responsible for filtering blood?",
-      options: ["Digestive System", "Respiratory System", "Excretory System", "Circulatory System"],
-      correct: 2,
-      difficulty: "medium",
-      explanation: "The excretory system, primarily through the kidneys, filters waste products and excess water from the blood."
-    },
-    {
-      question: "What is the chemical formula for water?",
-      options: ["HO", "H2O", "H2O2", "OH"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Water has the chemical formula H2O, consisting of two hydrogen atoms bonded to one oxygen atom."
-    },
+  // Medium Set 3 - Science & Nature
+  {
+    question: "What is the process by which plants convert sunlight into energy?",
+    options: ["Respiration", "Photosynthesis", "Osmosis", "Transpiration"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Photosynthesis is the process where plants use sunlight, carbon dioxide, and water to create glucose and oxygen."
+  },
+  {
+    question: "Which blood type is considered the universal donor?",
+    options: ["A+", "AB+", "O-", "B-"],
+    correct: 2,
+    difficulty: "medium",
+    explanation: "O- blood type is the universal donor because it lacks A, B, and Rh antigens, making it compatible with all blood types."
+  },
+  {
+    question: "What is the speed of light in a vacuum?",
+    options: ["299,792,458 m/s", "300,000,000 m/s", "186,000 miles/s", "All of the above"],
+    correct: 0,
+    difficulty: "medium",
+    explanation: "The speed of light in vacuum is exactly 299,792,458 meters per second, which is approximately 300,000 km/s or 186,000 miles/s."
+  },
+  {
+    question: "Which organ system is responsible for filtering blood?",
+    options: ["Digestive System", "Respiratory System", "Excretory System", "Circulatory System"],
+    correct: 2,
+    difficulty: "medium",
+    explanation: "The excretory system, primarily through the kidneys, filters waste products and excess water from the blood."
+  },
+  {
+    question: "What is the chemical formula for water?",
+    options: ["HO", "H2O", "H2O2", "OH"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Water has the chemical formula H2O, consisting of two hydrogen atoms bonded to one oxygen atom."
+  },
 
-    // Medium Set 4 - History & Culture
-    {
-      question: "Which ancient wonder of the world was located in Alexandria?",
-      options: ["Hanging Gardens", "Lighthouse of Alexandria", "Colossus of Rhodes", "Temple of Artemis"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "The Lighthouse of Alexandria (Pharos of Alexandria) was one of the Seven Wonders of the Ancient World."
-    },
-    {
-      question: "What does 'Renaissance' mean in French?",
-      options: ["Revolution", "Rebirth", "Reform", "Recovery"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Renaissance means 'rebirth' in French, referring to the cultural revival of art, literature, and learning in Europe."
-    },
-    {
-      question: "Which philosophical school was founded by Epicurus?",
-      options: ["Stoicism", "Epicureanism", "Cynicism", "Skepticism"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Epicureanism was founded by Epicurus and emphasized the pursuit of happiness through simple pleasures and freedom from fear."
-    },
-    {
-      question: "What is the study of flags called?",
-      options: ["Heraldry", "Vexillology", "Cartography", "Iconography"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Vexillology is the study of flags, their history, symbolism, and usage."
-    },
-    {
-      question: "Which empire was ruled by Hammurabi?",
-      options: ["Egyptian", "Babylonian", "Persian", "Roman"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Hammurabi ruled the Babylonian Empire and is famous for creating one of the first written legal codes."
-    },
+  // Medium Set 4 - History & Culture
+  {
+    question: "Which ancient wonder of the world was located in Alexandria?",
+    options: ["Hanging Gardens", "Lighthouse of Alexandria", "Colossus of Rhodes", "Temple of Artemis"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "The Lighthouse of Alexandria (Pharos of Alexandria) was one of the Seven Wonders of the Ancient World."
+  },
+  {
+    question: "What does 'Renaissance' mean in French?",
+    options: ["Revolution", "Rebirth", "Reform", "Recovery"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Renaissance means 'rebirth' in French, referring to the cultural revival of art, literature, and learning in Europe."
+  },
+  {
+    question: "Which philosophical school was founded by Epicurus?",
+    options: ["Stoicism", "Epicureanism", "Cynicism", "Skepticism"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Epicureanism was founded by Epicurus and emphasized the pursuit of happiness through simple pleasures and freedom from fear."
+  },
+  {
+    question: "What is the study of flags called?",
+    options: ["Heraldry", "Vexillology", "Cartography", "Iconography"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Vexillology is the study of flags, their history, symbolism, and usage."
+  },
+  {
+    question: "Which empire was ruled by Hammurabi?",
+    options: ["Egyptian", "Babylonian", "Persian", "Roman"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Hammurabi ruled the Babylonian Empire and is famous for creating one of the first written legal codes."
+  },
 
-    // Medium Set 5 - Mathematics & Logic
-    {
-      question: "What is the derivative of x² with respect to x?",
-      options: ["x", "2x", "x²", "2"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Using the power rule, the derivative of x² is 2x¹ = 2x."
-    },
-    {
-      question: "Which mathematical constant is approximately 2.718?",
-      options: ["π (pi)", "e (Euler's number)", "φ (golden ratio)", "√2"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Euler's number (e) is approximately 2.71828 and is the base of natural logarithms."
-    },
-    {
-      question: "What is the sum of interior angles in a hexagon?",
-      options: ["540°", "720°", "900°", "1080°"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "The sum of interior angles in a polygon is (n-2) × 180°. For a hexagon: (6-2) × 180° = 720°."
-    },
-    {
-      question: "Which statistical measure is most affected by outliers?",
-      options: ["Mean", "Median", "Mode", "Range"],
-      correct: 0,
-      difficulty: "medium",
-      explanation: "The mean is most affected by outliers because it includes all values in its calculation, unlike median or mode."
-    },
-    {
-      question: "What is the probability of getting heads twice in two coin flips?",
-      options: ["1/2", "1/4", "1/3", "2/3"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "The probability is (1/2) × (1/2) = 1/4 or 25%, since each coin flip is independent."
-    },
+  // Medium Set 5 - Mathematics & Logic
+  {
+    question: "What is the derivative of x² with respect to x?",
+    options: ["x", "2x", "x²", "2"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Using the power rule, the derivative of x² is 2x¹ = 2x."
+  },
+  {
+    question: "Which mathematical constant is approximately 2.718?",
+    options: ["π (pi)", "e (Euler's number)", "φ (golden ratio)", "√2"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Euler's number (e) is approximately 2.71828 and is the base of natural logarithms."
+  },
+  {
+    question: "What is the sum of interior angles in a hexagon?",
+    options: ["540°", "720°", "900°", "1080°"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "The sum of interior angles in a polygon is (n-2) × 180°. For a hexagon: (6-2) × 180° = 720°."
+  },
+  {
+    question: "Which statistical measure is most affected by outliers?",
+    options: ["Mean", "Median", "Mode", "Range"],
+    correct: 0,
+    difficulty: "medium",
+    explanation: "The mean is most affected by outliers because it includes all values in its calculation, unlike median or mode."
+  },
+  {
+    question: "What is the probability of getting heads twice in two coin flips?",
+    options: ["1/2", "1/4", "1/3", "2/3"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "The probability is (1/2) × (1/2) = 1/4 or 25%, since each coin flip is independent."
+  },
 
-    // Medium Set 6 - Geography & Earth Sciences
-    {
-      question: "Which layer of Earth's atmosphere contains the ozone layer?",
-      options: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "The ozone layer is located in the stratosphere, approximately 15-35 km above Earth's surface."
-    },
-    {
-      question: "What is the smallest country in the world by area?",
-      options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Vatican City is the smallest country in the world with an area of just 0.17 square miles (0.44 km²)."
-    },
-    {
-      question: "Which tectonic plate boundary type creates mountains?",
-      options: ["Divergent", "Convergent", "Transform", "Lateral"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "Convergent plate boundaries, where plates collide, create mountain ranges through compression and uplift."
-    },
-    {
-      question: "What is the deepest point in Earth's oceans?",
-      options: ["Puerto Rico Trench", "Mariana Trench", "Japan Trench", "Peru-Chile Trench"],
-      correct: 1,
-      difficulty: "medium",
-      explanation: "The Mariana Trench in the Pacific Ocean is the deepest point, reaching about 36,200 feet (11,034 meters) deep."
-    },
-    {
-      question: "Which desert is the largest hot desert in the world?",
-      options: ["Gobi Desert", "Arabian Desert", "Sahara Desert", "Kalahari Desert"],
-      correct: 2,
-      difficulty: "medium",
-      explanation: "The Sahara Desert in North Africa is the largest hot desert, covering approximately 9 million square kilometers."
-    },
+  // Medium Set 6 - Geography & Earth Sciences
+  {
+    question: "Which layer of Earth's atmosphere contains the ozone layer?",
+    options: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "The ozone layer is located in the stratosphere, approximately 15-35 km above Earth's surface."
+  },
+  {
+    question: "What is the smallest country in the world by area?",
+    options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Vatican City is the smallest country in the world with an area of just 0.17 square miles (0.44 km²)."
+  },
+  {
+    question: "Which tectonic plate boundary type creates mountains?",
+    options: ["Divergent", "Convergent", "Transform", "Lateral"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "Convergent plate boundaries, where plates collide, create mountain ranges through compression and uplift."
+  },
+  {
+    question: "What is the deepest point in Earth's oceans?",
+    options: ["Puerto Rico Trench", "Mariana Trench", "Japan Trench", "Peru-Chile Trench"],
+    correct: 1,
+    difficulty: "medium",
+    explanation: "The Mariana Trench in the Pacific Ocean is the deepest point, reaching about 36,200 feet (11,034 meters) deep."
+  },
+  {
+    question: "Which desert is the largest hot desert in the world?",
+    options: ["Gobi Desert", "Arabian Desert", "Sahara Desert", "Kalahari Desert"],
+    correct: 2,
+    difficulty: "medium",
+    explanation: "The Sahara Desert in North Africa is the largest hot desert, covering approximately 9 million square kilometers."
+  },
 
-    // Hard Set 1 - Advanced Computing & Algorithms
-    {
-      question: "What is the worst-case time complexity of quicksort algorithm?",
-      options: ["O(n log n)", "O(n²)", "O(log n)", "O(n)"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Quicksort has O(n²) worst-case complexity when the pivot is always the smallest or largest element, though average case is O(n log n)."
-    },
-    {
-      question: "Which theorem states that every non-trivial zero of the Riemann zeta function has real part 1/2?",
-      options: ["Fermat's Last Theorem", "Riemann Hypothesis", "Goldbach Conjecture", "Twin Prime Conjecture"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The Riemann Hypothesis is one of the most famous unsolved problems in mathematics, concerning the distribution of prime numbers."
-    },
-    {
-      question: "In object-oriented programming, what does the Liskov Substitution Principle state?",
-      options: ["Objects should be replaceable with instances of their subtypes", "Classes should have single responsibility", "Depend on abstractions, not concretions", "Open for extension, closed for modification"],
-      correct: 0,
-      difficulty: "hard",
-      explanation: "The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of its subclasses without breaking the application."
-    },
-    {
-      question: "What is the Byzantine Generals Problem in distributed computing?",
-      options: ["Load balancing issue", "Consensus problem with faulty nodes", "Network partitioning", "Deadlock detection"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The Byzantine Generals Problem addresses achieving consensus in a distributed system where some nodes may be faulty or malicious."
-    },
-    {
-      question: "Which data structure is used in Dijkstra's shortest path algorithm for efficient implementation?",
-      options: ["Stack", "Queue", "Priority Queue", "Hash Table"],
-      correct: 2,
-      difficulty: "hard",
-      explanation: "Dijkstra's algorithm uses a priority queue (min-heap) to efficiently select the next vertex with minimum distance."
-    },
+  // Hard Set 1 - Advanced Computing & Algorithms
+  {
+    question: "What is the worst-case time complexity of quicksort algorithm?",
+    options: ["O(n log n)", "O(n²)", "O(log n)", "O(n)"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Quicksort has O(n²) worst-case complexity when the pivot is always the smallest or largest element, though average case is O(n log n)."
+  },
+  {
+    question: "Which theorem states that every non-trivial zero of the Riemann zeta function has real part 1/2?",
+    options: ["Fermat's Last Theorem", "Riemann Hypothesis", "Goldbach Conjecture", "Twin Prime Conjecture"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The Riemann Hypothesis is one of the most famous unsolved problems in mathematics, concerning the distribution of prime numbers."
+  },
+  {
+    question: "In object-oriented programming, what does the Liskov Substitution Principle state?",
+    options: ["Objects should be replaceable with instances of their subtypes", "Classes should have single responsibility", "Depend on abstractions, not concretions", "Open for extension, closed for modification"],
+    correct: 0,
+    difficulty: "hard",
+    explanation: "The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of its subclasses without breaking the application."
+  },
+  {
+    question: "What is the Byzantine Generals Problem in distributed computing?",
+    options: ["Load balancing issue", "Consensus problem with faulty nodes", "Network partitioning", "Deadlock detection"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The Byzantine Generals Problem addresses achieving consensus in a distributed system where some nodes may be faulty or malicious."
+  },
+  {
+    question: "Which data structure is used in Dijkstra's shortest path algorithm for efficient implementation?",
+    options: ["Stack", "Queue", "Priority Queue", "Hash Table"],
+    correct: 2,
+    difficulty: "hard",
+    explanation: "Dijkstra's algorithm uses a priority queue (min-heap) to efficiently select the next vertex with minimum distance."
+  },
 
-    // Hard Set 2 - Advanced Science & Physics
-    {
-      question: "What is the uncertainty principle in quantum mechanics?",
-      options: ["Energy and time cannot be measured simultaneously", "Position and momentum cannot be precisely determined simultaneously", "Wave and particle nature are mutually exclusive", "Quantum states collapse upon observation"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Heisenberg's uncertainty principle states that position and momentum of a particle cannot both be precisely determined at the same time."
-    },
-    {
-      question: "Which equation describes the relationship between energy and mass?",
-      options: ["F = ma", "E = mc²", "E = hf", "PV = nRT"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Einstein's mass-energy equivalence equation E = mc² shows that mass and energy are interchangeable."
-    },
-    {
-      question: "What is the second law of thermodynamics?",
-      options: ["Energy cannot be created or destroyed", "Entropy of an isolated system always increases", "For every action, there is an equal and opposite reaction", "The internal energy of a system equals heat added minus work done"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The second law of thermodynamics states that the entropy of an isolated system always increases over time."
-    },
-    {
-      question: "Which particle is responsible for the Higgs mechanism?",
-      options: ["Photon", "Electron", "Higgs boson", "Neutrino"],
-      correct: 2,
-      difficulty: "hard",
-      explanation: "The Higgs boson is the particle associated with the Higgs field, which gives mass to other particles through the Higgs mechanism."
-    },
-    {
-      question: "What is the study of the motion of fluids called?",
-      options: ["Thermodynamics", "Electromagnetism", "Fluid dynamics", "Quantum mechanics"],
-      correct: 2,
-      difficulty: "hard",
-      explanation: "Fluid dynamics is the study of the motion of liquids and gases, including the forces acting on them."
-    },
+  // Hard Set 2 - Advanced Science & Physics
+  {
+    question: "What is the uncertainty principle in quantum mechanics?",
+    options: ["Energy and time cannot be measured simultaneously", "Position and momentum cannot be precisely determined simultaneously", "Wave and particle nature are mutually exclusive", "Quantum states collapse upon observation"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Heisenberg's uncertainty principle states that position and momentum of a particle cannot both be precisely determined at the same time."
+  },
+  {
+    question: "Which equation describes the relationship between energy and mass?",
+    options: ["F = ma", "E = mc²", "E = hf", "PV = nRT"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Einstein's mass-energy equivalence equation E = mc² shows that mass and energy are interchangeable."
+  },
+  {
+    question: "What is the second law of thermodynamics?",
+    options: ["Energy cannot be created or destroyed", "Entropy of an isolated system always increases", "For every action, there is an equal and opposite reaction", "The internal energy of a system equals heat added minus work done"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The second law of thermodynamics states that the entropy of an isolated system always increases over time."
+  },
+  {
+    question: "Which particle is responsible for the Higgs mechanism?",
+    options: ["Photon", "Electron", "Higgs boson", "Neutrino"],
+    correct: 2,
+    difficulty: "hard",
+    explanation: "The Higgs boson is the particle associated with the Higgs field, which gives mass to other particles through the Higgs mechanism."
+  },
+  {
+    question: "What is the study of the motion of fluids called?",
+    options: ["Thermodynamics", "Electromagnetism", "Fluid dynamics", "Quantum mechanics"],
+    correct: 2,
+    difficulty: "hard",
+    explanation: "Fluid dynamics is the study of the motion of liquids and gases, including the forces acting on them."
+  },
 
-    // Hard Set 3 - Advanced Mathematics
-    {
-      question: "What is the integral of 1/x with respect to x?",
-      options: ["x²/2", "ln|x| + C", "1/x² + C", "-1/x² + C"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The integral of 1/x is ln|x| + C, where C is the constant of integration and ln is the natural logarithm."
-    },
-    {
-      question: "Which theorem connects differentiation and integration?",
-      options: ["Pythagorean Theorem", "Fundamental Theorem of Calculus", "Green's Theorem", "Stokes' Theorem"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The Fundamental Theorem of Calculus establishes the relationship between differentiation and integration as inverse operations."
-    },
-    {
-      question: "What is the determinant of a 2x2 matrix [[a,b],[c,d]]?",
-      options: ["ad + bc", "ad - bc", "ac - bd", "ab - cd"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The determinant of a 2x2 matrix [[a,b],[c,d]] is ad - bc."
-    },
-    {
-      question: "Which mathematical concept describes the rate of change of a function?",
-      options: ["Integral", "Derivative", "Limit", "Series"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The derivative of a function describes its instantaneous rate of change at any given point."
-    },
-    {
-      question: "What is the name of the sequence where each number is the sum of the two preceding ones?",
-      options: ["Arithmetic sequence", "Geometric sequence", "Fibonacci sequence", "Harmonic sequence"],
-      correct: 2,
-      difficulty: "hard",
-      explanation: "The Fibonacci sequence starts with 0, 1 and each subsequent number is the sum of the two preceding numbers: 0, 1, 1, 2, 3, 5, 8, 13..."
-    },
+  // Hard Set 3 - Advanced Mathematics
+  {
+    question: "What is the integral of 1/x with respect to x?",
+    options: ["x²/2", "ln|x| + C", "1/x² + C", "-1/x² + C"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The integral of 1/x is ln|x| + C, where C is the constant of integration and ln is the natural logarithm."
+  },
+  {
+    question: "Which theorem connects differentiation and integration?",
+    options: ["Pythagorean Theorem", "Fundamental Theorem of Calculus", "Green's Theorem", "Stokes' Theorem"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The Fundamental Theorem of Calculus establishes the relationship between differentiation and integration as inverse operations."
+  },
+  {
+    question: "What is the determinant of a 2x2 matrix [[a,b],[c,d]]?",
+    options: ["ad + bc", "ad - bc", "ac - bd", "ab - cd"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The determinant of a 2x2 matrix [[a,b],[c,d]] is ad - bc."
+  },
+  {
+    question: "Which mathematical concept describes the rate of change of a function?",
+    options: ["Integral", "Derivative", "Limit", "Series"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The derivative of a function describes its instantaneous rate of change at any given point."
+  },
+  {
+    question: "What is the name of the sequence where each number is the sum of the two preceding ones?",
+    options: ["Arithmetic sequence", "Geometric sequence", "Fibonacci sequence", "Harmonic sequence"],
+    correct: 2,
+    difficulty: "hard",
+    explanation: "The Fibonacci sequence starts with 0, 1 and each subsequent number is the sum of the two preceding numbers: 0, 1, 1, 2, 3, 5, 8, 13..."
+  },
 
-    // Hard Set 4 - Philosophy & Logic
-    {
-      question: "What is the philosophical problem of induction?",
-      options: ["The difficulty of proving universal statements from particular observations", "The conflict between free will and determinism", "The question of whether objective reality exists", "The problem of defining consciousness"],
-      correct: 0,
-      difficulty: "hard",
-      explanation: "The problem of induction questions whether we can justifiably infer universal conclusions from particular observations or experiences."
-    },
-    {
-      question: "Which philosopher proposed the categorical imperative?",
-      options: ["John Stuart Mill", "Immanuel Kant", "Aristotle", "Friedrich Nietzsche"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Immanuel Kant proposed the categorical imperative as a way to determine the morality of actions based on universal principles."
-    },
-    {
-      question: "What is the ship of Theseus paradox about?",
-      options: ["The nature of time", "Personal identity and change", "The existence of God", "The meaning of life"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The Ship of Theseus paradox explores questions of identity: if all parts of an object are gradually replaced, is it still the same object?"
-    },
-    {
-      question: "Which logical fallacy involves attacking the person rather than their argument?",
-      options: ["Straw man", "Ad hominem", "False dichotomy", "Slippery slope"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Ad hominem is a logical fallacy where someone attacks the character of the person making an argument rather than addressing the argument itself."
-    },
-    {
-      question: "What does 'cogito ergo sum' mean?",
-      options: ["God is dead", "I think, therefore I am", "Life is suffering", "Knowledge is power"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "'Cogito ergo sum' is René Descartes' famous philosophical proposition meaning 'I think, therefore I am.'"
-    },
+  // Hard Set 4 - Philosophy & Logic
+  {
+    question: "What is the philosophical problem of induction?",
+    options: ["The difficulty of proving universal statements from particular observations", "The conflict between free will and determinism", "The question of whether objective reality exists", "The problem of defining consciousness"],
+    correct: 0,
+    difficulty: "hard",
+    explanation: "The problem of induction questions whether we can justifiably infer universal conclusions from particular observations or experiences."
+  },
+  {
+    question: "Which philosopher proposed the categorical imperative?",
+    options: ["John Stuart Mill", "Immanuel Kant", "Aristotle", "Friedrich Nietzsche"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Immanuel Kant proposed the categorical imperative as a way to determine the morality of actions based on universal principles."
+  },
+  {
+    question: "What is the ship of Theseus paradox about?",
+    options: ["The nature of time", "Personal identity and change", "The existence of God", "The meaning of life"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The Ship of Theseus paradox explores questions of identity: if all parts of an object are gradually replaced, is it still the same object?"
+  },
+  {
+    question: "Which logical fallacy involves attacking the person rather than their argument?",
+    options: ["Straw man", "Ad hominem", "False dichotomy", "Slippery slope"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Ad hominem is a logical fallacy where someone attacks the character of the person making an argument rather than addressing the argument itself."
+  },
+  {
+    question: "What does 'cogito ergo sum' mean?",
+    options: ["God is dead", "I think, therefore I am", "Life is suffering", "Knowledge is power"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "'Cogito ergo sum' is René Descartes' famous philosophical proposition meaning 'I think, therefore I am.'"
+  },
 
-    // Hard Set 5 - Advanced History & Culture
-    {
-      question: "Which treaty ended the Thirty Years' War?",
-      options: ["Treaty of Versailles", "Peace of Westphalia", "Treaty of Utrecht", "Congress of Vienna"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The Peace of Westphalia (1648) ended the Thirty Years' War and established the modern concept of national sovereignty."
-    },
-    {
-      question: "What was the primary cause of the Bronze Age collapse?",
-      options: ["Natural disasters", "Multiple factors including invasions and climate change", "Single massive war", "Economic depression"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "The Bronze Age collapse (c. 1200 BCE) was likely caused by multiple factors including climate change, invasions by Sea Peoples, and internal conflicts."
-    },
-    {
-      question: "Which economic theory suggests that government spending can stimulate economic growth during recessions?",
-      options: ["Classical economics", "Keynesian economics", "Austrian economics", "Chicago school"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Keynesian economics, developed by John Maynard Keynes, advocates for government intervention through spending to manage economic cycles."
-    },
-    {
-      question: "What is the difference between deductive and inductive reasoning?",
-      options: ["Deductive goes from general to specific, inductive from specific to general", "Deductive uses emotions, inductive uses logic", "Deductive is faster, inductive is slower", "There is no difference"],
-      correct: 0,
-      difficulty: "hard",
-      explanation: "Deductive reasoning starts with general principles and moves to specific conclusions, while inductive reasoning starts with specific observations and moves to general conclusions."
-    },
-    {
-      question: "Which art movement was characterized by the use of geometric shapes and multiple perspectives?",
-      options: ["Impressionism", "Surrealism", "Cubism", "Abstract Expressionism"],
-      correct: 2,
-      difficulty: "hard",
-      explanation: "Cubism, developed by Pablo Picasso and Georges Braque, used geometric shapes and showed objects from multiple perspectives simultaneously."
-    },
+  // Hard Set 5 - Advanced History & Culture
+  {
+    question: "Which treaty ended the Thirty Years' War?",
+    options: ["Treaty of Versailles", "Peace of Westphalia", "Treaty of Utrecht", "Congress of Vienna"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The Peace of Westphalia (1648) ended the Thirty Years' War and established the modern concept of national sovereignty."
+  },
+  {
+    question: "What was the primary cause of the Bronze Age collapse?",
+    options: ["Natural disasters", "Multiple factors including invasions and climate change", "Single massive war", "Economic depression"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "The Bronze Age collapse (c. 1200 BCE) was likely caused by multiple factors including climate change, invasions by Sea Peoples, and internal conflicts."
+  },
+  {
+    question: "Which economic theory suggests that government spending can stimulate economic growth during recessions?",
+    options: ["Classical economics", "Keynesian economics", "Austrian economics", "Chicago school"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Keynesian economics, developed by John Maynard Keynes, advocates for government intervention through spending to manage economic cycles."
+  },
+  {
+    question: "What is the difference between deductive and inductive reasoning?",
+    options: ["Deductive goes from general to specific, inductive from specific to general", "Deductive uses emotions, inductive uses logic", "Deductive is faster, inductive is slower", "There is no difference"],
+    correct: 0,
+    difficulty: "hard",
+    explanation: "Deductive reasoning starts with general principles and moves to specific conclusions, while inductive reasoning starts with specific observations and moves to general conclusions."
+  },
+  {
+    question: "Which art movement was characterized by the use of geometric shapes and multiple perspectives?",
+    options: ["Impressionism", "Surrealism", "Cubism", "Abstract Expressionism"],
+    correct: 2,
+    difficulty: "hard",
+    explanation: "Cubism, developed by Pablo Picasso and Georges Braque, used geometric shapes and showed objects from multiple perspectives simultaneously."
+  },
 
-    // Hard Set 6 - Advanced Biology & Chemistry
-    {
-      question: "What is the central dogma of molecular biology?",
-      options: ["DNA → RNA → Protein", "Protein → RNA → DNA", "RNA → DNA → Protein", "DNA → Protein → RNA"],
-      correct: 0,
-      difficulty: "hard",
-      explanation: "The central dogma describes the flow of genetic information: DNA is transcribed to RNA, which is then translated to proteins."
-    },
-    {
-      question: "Which type of chemical bond involves the sharing of electron pairs?",
-      options: ["Ionic bond", "Covalent bond", "Hydrogen bond", "Van der Waals force"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Covalent bonds form when atoms share electron pairs to achieve stable electron configurations."
-    },
-    {
-      question: "What is the pH of a neutral solution at 25°C?",
-      options: ["0", "7", "14", "1"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "At 25°C, pure water has a pH of 7, which is considered neutral (equal concentrations of H⁺ and OH⁻ ions)."
-    },
-    {
-      question: "Which process do plants use to convert atmospheric nitrogen into ammonia?",
-      options: ["Photosynthesis", "Nitrogen fixation", "Transpiration", "Cellular respiration"],
-      correct: 1,
-      difficulty: "hard",
-      explanation: "Nitrogen fixation is the process by which atmospheric nitrogen (N₂) is converted into ammonia (NH₃) by specialized bacteria in plant"
-    },
-    {
-      question: "What is the name of the enzyme that unwinds DNA during replication?",
-      options: ["DNA polymerase", "DNA ligase", "Helicase", "Primase"],
-      correct: 2,
-      difficulty: "hard",
-      explanation: "Helicase is the enzyme responsible for unwinding the double helix structure of DNA by breaking hydrogen bonds between base pairs, creating the replication fork where DNA synthesis can occur."
-    }
-  ]
+  // Hard Set 6 - Advanced Biology & Chemistry
+  {
+    question: "What is the central dogma of molecular biology?",
+    options: ["DNA → RNA → Protein", "Protein → RNA → DNA", "RNA → DNA → Protein", "DNA → Protein → RNA"],
+    correct: 0,
+    difficulty: "hard",
+    explanation: "The central dogma describes the flow of genetic information: DNA is transcribed to RNA, which is then translated to proteins."
+  },
+  {
+    question: "Which type of chemical bond involves the sharing of electron pairs?",
+    options: ["Ionic bond", "Covalent bond", "Hydrogen bond", "Van der Waals force"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Covalent bonds form when atoms share electron pairs to achieve stable electron configurations."
+  },
+  {
+    question: "What is the pH of a neutral solution at 25°C?",
+    options: ["0", "7", "14", "1"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "At 25°C, pure water has a pH of 7, which is considered neutral (equal concentrations of H⁺ and OH⁻ ions)."
+  },
+  {
+    question: "Which process do plants use to convert atmospheric nitrogen into ammonia?",
+    options: ["Photosynthesis", "Nitrogen fixation", "Transpiration", "Cellular respiration"],
+    correct: 1,
+    difficulty: "hard",
+    explanation: "Nitrogen fixation is the process by which atmospheric nitrogen (N₂) is converted into ammonia (NH₃) by specialized bacteria in plant"
+  },
+  {
+    question: "What is the name of the enzyme that unwinds DNA during replication?",
+    options: ["DNA polymerase", "DNA ligase", "Helicase", "Primase"],
+    correct: 2,
+    difficulty: "hard",
+    explanation: "Helicase is the enzyme responsible for unwinding the double helix structure of DNA by breaking hydrogen bonds between base pairs, creating the replication fork where DNA synthesis can occur."
+  }
+], []); // Empty dependency array since questions are static
 
   // Particle system for visual effects
   const createParticles = () => {
@@ -566,70 +566,76 @@ const AdvancedQuizApp = () => {
       console.log('Audio not supported');
     }
   };
-  // Timer effect
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    const handleTimeout = () => {
-      playSound(false);
-      setStreak(0);
-      setShowAnswer(true);
-      setTimeout(() => {
-        nextQuestion();
-      }, 3000);
-    };
-
-    if (gameState === 'playing' && timeLeft > 0 && !showAnswer) {
-      timerRef.current = setTimeout(() => {
-        setTimeLeft(timeLeft - 1);
-      }, 1000);
-    } else if (timeLeft === 0 && gameState === 'playing' && !showAnswer) {
-      handleTimeout();
-    }
-    return () => clearTimeout(timerRef.current);
-  }, [timeLeft, gameState, showAnswer]); // Remove the separate handleTimeout function definition
-
-  const getRandomQuestion = () => {
-    const availableQuestions = questionPool.filter(q => !usedQuestions.has(q.question));
-    
-    if (availableQuestions.length === 0) {
-      setUsedQuestions(new Set());
-      return questionPool[Math.floor(Math.random() * questionPool.length)];
-    }
-    
-    const filteredQuestions = difficulty === 'mixed' ? 
-      availableQuestions : 
-      availableQuestions.filter(q => q.difficulty === difficulty);
-    
-    const selectedQuestion = filteredQuestions.length > 0 ? 
-      filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)] :
-      availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
-    
-    setUsedQuestions(prev => new Set([...prev, selectedQuestion.question]));
-    return selectedQuestion;
-  };
-
-  const startGame = () => {
-    setScore(0);
-    setQuestionNumber(0);
-    setStreak(0);
+  const getRandomQuestion = useCallback(() => {
+  const availableQuestions = questionPool.filter(q => !usedQuestions.has(q.question));
+  
+  if (availableQuestions.length === 0) {
     setUsedQuestions(new Set());
-    setGameState('playing');
-    loadQuestion();
+    return questionPool[Math.floor(Math.random() * questionPool.length)];
+  }
+  
+  const filteredQuestions = difficulty === 'mixed' ? 
+    availableQuestions : 
+    availableQuestions.filter(q => q.difficulty === difficulty);
+  
+  const selectedQuestion = filteredQuestions.length > 0 ? 
+    filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)] :
+    availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+  
+  setUsedQuestions(prev => new Set([...prev, selectedQuestion.question]));
+  return selectedQuestion;
+}, [questionPool, usedQuestions, difficulty]);
+
+// Now define loadQuestion after getRandomQuestion
+const loadQuestion = useCallback(() => {
+  setLoading(true);
+  setSelectedAnswer(null);
+  setShowAnswer(false);
+  setTimeLeft(30);
+  
+  setTimeout(() => {
+    const question = getRandomQuestion();
+    setCurrentQuestion(question);
+    setQuestionNumber(prev => prev + 1);
+    setLoading(false);
+  }, 500);
+}, [getRandomQuestion]);
+
+// Now nextQuestion can use loadQuestion safely
+const nextQuestion = useCallback(() => {
+  loadQuestion();
+}, [loadQuestion]);
+
+// Timer effect
+useEffect(() => {
+  const handleTimeout = () => {
+    playSound(false);
+    setStreak(0);
+    setShowAnswer(true);
+    setTimeout(() => {
+      nextQuestion();
+    }, 3000);
   };
 
-  const loadQuestion = () => {
-    setLoading(true);
-    setSelectedAnswer(null);
-    setShowAnswer(false);
-    setTimeLeft(30);
-    
-    setTimeout(() => {
-      const question = getRandomQuestion();
-      setCurrentQuestion(question);
-      setQuestionNumber(prev => prev + 1);
-      setLoading(false);
-    }, 500);
-  };
+  if (gameState === 'playing' && timeLeft > 0 && !showAnswer) {
+    timerRef.current = setTimeout(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+  } else if (timeLeft === 0 && gameState === 'playing' && !showAnswer) {
+    handleTimeout();
+  }
+
+  return () => clearTimeout(timerRef.current);
+}, [timeLeft, gameState, showAnswer, nextQuestion]);
+
+const startGame = () => {
+  setScore(0);
+  setQuestionNumber(0);
+  setStreak(0);
+  setUsedQuestions(new Set());
+  setGameState('playing');
+  loadQuestion();
+};
 
   const handleAnswer = (answerIndex) => {
     if (showAnswer || selectedAnswer !== null) return;
@@ -661,10 +667,6 @@ const AdvancedQuizApp = () => {
         nextQuestion();
       }
     }, 3000);
-  };
-
-  const nextQuestion = () => {
-    loadQuestion();
   };
 
   const resetGame = () => {
