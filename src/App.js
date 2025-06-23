@@ -30,8 +30,8 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "Which planet in our solar system has the most moons?",
-    options: ["Jupiter", "Saturn", "Neptune", "Uranus"],
-    correct: 1,
+    options: ["Jupiter", "Neptune", "Uranus", "Saturn"],
+    correct: 3,
     difficulty: "medium",
     explanation: "Saturn has the most confirmed moons with over 80 satellites orbiting around it."
   },
@@ -44,15 +44,15 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "Which chemical element has the symbol 'Au'?",
-    options: ["Silver", "Aluminum", "Gold", "Argon"],
-    correct: 2,
+    options: ["Silver", "Gold", "Aluminum", "Argon"],
+    correct: 1,
     difficulty: "medium",
     explanation: "Gold has the chemical symbol 'Au' which comes from the Latin word 'aurum' meaning gold."
   },
   {
     question: "What is the term for a word that reads the same forwards and backwards?",
-    options: ["Anagram", "Palindrome", "Homophone", "Synonym"],
-    correct: 1,
+    options: ["Anagram", "Homophone", "Synonym", "Palindrome"],
+    correct: 3,
     difficulty: "medium",
     explanation: "A palindrome is a word, phrase, or sequence that reads the same backward as forward, like 'radar' or 'level'."
   },
@@ -60,36 +60,36 @@ const AdvancedQuizApp = () => {
   // Medium Set 2 - Technology & Computing
   {
     question: "Which design pattern ensures only one instance of a class exists?",
-    options: ["Factory", "Singleton", "Observer", "Strategy"],
-    correct: 1,
+    options: ["Singleton", "Factory", "Observer", "Strategy"],
+    correct: 0,
     difficulty: "medium",
     explanation: "The Singleton pattern ensures that only one instance of a class is created and provides global access to it."
   },
   {
     question: "What is the primary purpose of a compiler?",
-    options: ["Execute code", "Debug programs", "Translate source code to machine code", "Manage memory"],
-    correct: 2,
+    options: ["Execute code", "Translate source code to machine code", "Debug programs", "Manage memory"],
+    correct: 1,
     difficulty: "medium",
     explanation: "A compiler translates high-level source code into machine code that can be executed by the computer's processor."
   },
   {
     question: "Which database concept ensures data integrity through relationships?",
-    options: ["Indexing", "Normalization", "Encryption", "Backup"],
-    correct: 1,
+    options: ["Indexing", "Encryption", "Normalization", "Backup"],
+    correct: 2,
     difficulty: "medium",
     explanation: "Normalization is the process of organizing data to reduce redundancy and improve data integrity through proper relationships."
   },
   {
     question: "What does 'API' stand for in software development?",
-    options: ["Application Programming Interface", "Advanced Programming Integration", "Automated Program Interpreter", "Application Process Interface"],
-    correct: 0,
+    options: ["Advanced Programming Integration", "Automated Program Interpreter", "Application Process Interface", "Application Programming Interface"],
+    correct: 3,
     difficulty: "medium",
     explanation: "API stands for Application Programming Interface, which defines how software components communicate with each other."
   },
   {
     question: "Which networking model has 7 layers?",
-    options: ["TCP/IP Model", "OSI Model", "Internet Model", "Ethernet Model"],
-    correct: 1,
+    options: ["OSI Model", "TCP/IP Model", "Internet Model", "Ethernet Model"],
+    correct: 0,
     difficulty: "medium",
     explanation: "The OSI (Open Systems Interconnection) model has 7 layers, from Physical to Application layer."
   },
@@ -104,8 +104,8 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "Which blood type is considered the universal donor?",
-    options: ["A+", "AB+", "O-", "B-"],
-    correct: 2,
+    options: ["A+", "AB+", "B-", "O-"],
+    correct: 3,
     difficulty: "medium",
     explanation: "O- blood type is the universal donor because it lacks A, B, and Rh antigens, making it compatible with all blood types."
   },
@@ -118,15 +118,15 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "Which organ system is responsible for filtering blood?",
-    options: ["Digestive System", "Respiratory System", "Excretory System", "Circulatory System"],
-    correct: 2,
+    options: ["Digestive System", "Excretory System", "Respiratory System", "Circulatory System"],
+    correct: 1,
     difficulty: "medium",
     explanation: "The excretory system, primarily through the kidneys, filters waste products and excess water from the blood."
   },
   {
     question: "What is the chemical formula for water?",
-    options: ["HO", "H2O", "H2O2", "OH"],
-    correct: 1,
+    options: ["HO", "H2O2", "H2O", "OH"],
+    correct: 2,
     difficulty: "medium",
     explanation: "Water has the chemical formula H2O, consisting of two hydrogen atoms bonded to one oxygen atom."
   },
@@ -134,15 +134,15 @@ const AdvancedQuizApp = () => {
   // Medium Set 4 - History & Culture
   {
     question: "Which ancient wonder of the world was located in Alexandria?",
-    options: ["Hanging Gardens", "Lighthouse of Alexandria", "Colossus of Rhodes", "Temple of Artemis"],
-    correct: 1,
+    options: ["Hanging Gardens", "Colossus of Rhodes", "Temple of Artemis", "Lighthouse of Alexandria"],
+    correct: 3,
     difficulty: "medium",
     explanation: "The Lighthouse of Alexandria (Pharos of Alexandria) was one of the Seven Wonders of the Ancient World."
   },
   {
     question: "What does 'Renaissance' mean in French?",
-    options: ["Revolution", "Rebirth", "Reform", "Recovery"],
-    correct: 1,
+    options: ["Rebirth", "Revolution", "Reform", "Recovery"],
+    correct: 0,
     difficulty: "medium",
     explanation: "Renaissance means 'rebirth' in French, referring to the cultural revival of art, literature, and learning in Europe."
   },
@@ -155,15 +155,15 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "What is the study of flags called?",
-    options: ["Heraldry", "Vexillology", "Cartography", "Iconography"],
-    correct: 1,
+    options: ["Heraldry", "Cartography", "Vexillology", "Iconography"],
+    correct: 2,
     difficulty: "medium",
     explanation: "Vexillology is the study of flags, their history, symbolism, and usage."
   },
   {
     question: "Which empire was ruled by Hammurabi?",
-    options: ["Egyptian", "Babylonian", "Persian", "Roman"],
-    correct: 1,
+    options: ["Egyptian", "Persian", "Roman", "Babylonian"],
+    correct: 3,
     difficulty: "medium",
     explanation: "Hammurabi ruled the Babylonian Empire and is famous for creating one of the first written legal codes."
   },
@@ -171,8 +171,8 @@ const AdvancedQuizApp = () => {
   // Medium Set 5 - Mathematics & Logic
   {
     question: "What is the derivative of x² with respect to x?",
-    options: ["x", "2x", "x²", "2"],
-    correct: 1,
+    options: ["2x", "x", "x²", "2"],
+    correct: 0,
     difficulty: "medium",
     explanation: "Using the power rule, the derivative of x² is 2x¹ = 2x."
   },
@@ -185,22 +185,22 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "What is the sum of interior angles in a hexagon?",
-    options: ["540°", "720°", "900°", "1080°"],
-    correct: 1,
+    options: ["540°", "900°", "720°", "1080°"],
+    correct: 2,
     difficulty: "medium",
     explanation: "The sum of interior angles in a polygon is (n-2) × 180°. For a hexagon: (6-2) × 180° = 720°."
   },
   {
     question: "Which statistical measure is most affected by outliers?",
-    options: ["Mean", "Median", "Mode", "Range"],
-    correct: 0,
+    options: ["Median", "Mode", "Range", "Mean"],
+    correct: 3,
     difficulty: "medium",
     explanation: "The mean is most affected by outliers because it includes all values in its calculation, unlike median or mode."
   },
   {
     question: "What is the probability of getting heads twice in two coin flips?",
-    options: ["1/2", "1/4", "1/3", "2/3"],
-    correct: 1,
+    options: ["1/4", "1/2", "1/3", "2/3"],
+    correct: 0,
     difficulty: "medium",
     explanation: "The probability is (1/2) × (1/2) = 1/4 or 25%, since each coin flip is independent."
   },
@@ -215,29 +215,29 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "What is the smallest country in the world by area?",
-    options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
-    correct: 1,
+    options: ["Monaco", "San Marino", "Vatican City", "Liechtenstein"],
+    correct: 2,
     difficulty: "medium",
     explanation: "Vatican City is the smallest country in the world with an area of just 0.17 square miles (0.44 km²)."
   },
   {
     question: "Which tectonic plate boundary type creates mountains?",
-    options: ["Divergent", "Convergent", "Transform", "Lateral"],
-    correct: 1,
+    options: ["Divergent", "Transform", "Lateral", "Convergent"],
+    correct: 3,
     difficulty: "medium",
     explanation: "Convergent plate boundaries, where plates collide, create mountain ranges through compression and uplift."
   },
   {
     question: "What is the deepest point in Earth's oceans?",
-    options: ["Puerto Rico Trench", "Mariana Trench", "Japan Trench", "Peru-Chile Trench"],
-    correct: 1,
+    options: ["Mariana Trench", "Puerto Rico Trench", "Japan Trench", "Peru-Chile Trench"],
+    correct: 0,
     difficulty: "medium",
     explanation: "The Mariana Trench in the Pacific Ocean is the deepest point, reaching about 36,200 feet (11,034 meters) deep."
   },
   {
     question: "Which desert is the largest hot desert in the world?",
-    options: ["Gobi Desert", "Arabian Desert", "Sahara Desert", "Kalahari Desert"],
-    correct: 2,
+    options: ["Gobi Desert", "Sahara Desert", "Arabian Desert", "Kalahari Desert"],
+    correct: 1,
     difficulty: "medium",
     explanation: "The Sahara Desert in North Africa is the largest hot desert, covering approximately 9 million square kilometers."
   },
@@ -245,15 +245,15 @@ const AdvancedQuizApp = () => {
   // Hard Set 1 - Advanced Computing & Algorithms
   {
     question: "What is the worst-case time complexity of quicksort algorithm?",
-    options: ["O(n log n)", "O(n²)", "O(log n)", "O(n)"],
-    correct: 1,
+    options: ["O(n log n)", "O(log n)", "O(n²)", "O(n)"],
+    correct: 2,
     difficulty: "hard",
     explanation: "Quicksort has O(n²) worst-case complexity when the pivot is always the smallest or largest element, though average case is O(n log n)."
   },
   {
     question: "Which theorem states that every non-trivial zero of the Riemann zeta function has real part 1/2?",
-    options: ["Fermat's Last Theorem", "Riemann Hypothesis", "Goldbach Conjecture", "Twin Prime Conjecture"],
-    correct: 1,
+    options: ["Fermat's Last Theorem", "Goldbach Conjecture", "Twin Prime Conjecture", "Riemann Hypothesis"],
+    correct: 3,
     difficulty: "hard",
     explanation: "The Riemann Hypothesis is one of the most famous unsolved problems in mathematics, concerning the distribution of prime numbers."
   },
@@ -282,15 +282,15 @@ const AdvancedQuizApp = () => {
   // Hard Set 2 - Advanced Science & Physics
   {
     question: "What is the uncertainty principle in quantum mechanics?",
-    options: ["Energy and time cannot be measured simultaneously", "Position and momentum cannot be precisely determined simultaneously", "Wave and particle nature are mutually exclusive", "Quantum states collapse upon observation"],
-    correct: 1,
+    options: ["Energy and time cannot be measured simultaneously", "Wave and particle nature are mutually exclusive", "Quantum states collapse upon observation", "Position and momentum cannot be precisely determined simultaneously"],
+    correct: 3,
     difficulty: "hard",
     explanation: "Heisenberg's uncertainty principle states that position and momentum of a particle cannot both be precisely determined at the same time."
   },
   {
     question: "Which equation describes the relationship between energy and mass?",
-    options: ["F = ma", "E = mc²", "E = hf", "PV = nRT"],
-    correct: 1,
+    options: ["E = mc²", "F = ma", "E = hf", "PV = nRT"],
+    correct: 0,
     difficulty: "hard",
     explanation: "Einstein's mass-energy equivalence equation E = mc² shows that mass and energy are interchangeable."
   },
@@ -310,8 +310,8 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "What is the study of the motion of fluids called?",
-    options: ["Thermodynamics", "Electromagnetism", "Fluid dynamics", "Quantum mechanics"],
-    correct: 2,
+    options: ["Thermodynamics", "Electromagnetism", "Quantum mechanics", "Fluid dynamics"],
+    correct: 3,
     difficulty: "hard",
     explanation: "Fluid dynamics is the study of the motion of liquids and gases, including the forces acting on them."
   },
@@ -319,8 +319,8 @@ const AdvancedQuizApp = () => {
   // Hard Set 3 - Advanced Mathematics
   {
     question: "What is the integral of 1/x with respect to x?",
-    options: ["x²/2", "ln|x| + C", "1/x² + C", "-1/x² + C"],
-    correct: 1,
+    options: ["ln|x| + C", "x²/2", "1/x² + C", "-1/x² + C"],
+    correct: 0,
     difficulty: "hard",
     explanation: "The integral of 1/x is ln|x| + C, where C is the constant of integration and ln is the natural logarithm."
   },
@@ -333,22 +333,22 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "What is the determinant of a 2x2 matrix [[a,b],[c,d]]?",
-    options: ["ad + bc", "ad - bc", "ac - bd", "ab - cd"],
-    correct: 1,
+    options: ["ad + bc", "ac - bd", "ad - bc", "ab - cd"],
+    correct: 2,
     difficulty: "hard",
     explanation: "The determinant of a 2x2 matrix [[a,b],[c,d]] is ad - bc."
   },
   {
     question: "Which mathematical concept describes the rate of change of a function?",
-    options: ["Integral", "Derivative", "Limit", "Series"],
-    correct: 1,
+    options: ["Integral", "Limit", "Series", "Derivative"],
+    correct: 3,
     difficulty: "hard",
     explanation: "The derivative of a function describes its instantaneous rate of change at any given point."
   },
   {
     question: "What is the name of the sequence where each number is the sum of the two preceding ones?",
-    options: ["Arithmetic sequence", "Geometric sequence", "Fibonacci sequence", "Harmonic sequence"],
-    correct: 2,
+    options: ["Fibonacci sequence", "Arithmetic sequence", "Geometric sequence", "Harmonic sequence"],
+    correct: 0,
     difficulty: "hard",
     explanation: "The Fibonacci sequence starts with 0, 1 and each subsequent number is the sum of the two preceding numbers: 0, 1, 1, 2, 3, 5, 8, 13..."
   },
@@ -356,29 +356,29 @@ const AdvancedQuizApp = () => {
   // Hard Set 4 - Philosophy & Logic
   {
     question: "What is the philosophical problem of induction?",
-    options: ["The difficulty of proving universal statements from particular observations", "The conflict between free will and determinism", "The question of whether objective reality exists", "The problem of defining consciousness"],
-    correct: 0,
+    options: ["The conflict between free will and determinism", "The difficulty of proving universal statements from particular observations", "The question of whether objective reality exists", "The problem of defining consciousness"],
+    correct: 1,
     difficulty: "hard",
     explanation: "The problem of induction questions whether we can justifiably infer universal conclusions from particular observations or experiences."
   },
   {
     question: "Which philosopher proposed the categorical imperative?",
-    options: ["John Stuart Mill", "Immanuel Kant", "Aristotle", "Friedrich Nietzsche"],
-    correct: 1,
+    options: ["John Stuart Mill", "Aristotle", "Immanuel Kant", "Friedrich Nietzsche"],
+    correct: 2,
     difficulty: "hard",
     explanation: "Immanuel Kant proposed the categorical imperative as a way to determine the morality of actions based on universal principles."
   },
   {
     question: "What is the ship of Theseus paradox about?",
-    options: ["The nature of time", "Personal identity and change", "The existence of God", "The meaning of life"],
-    correct: 1,
+    options: ["The nature of time", "The existence of God", "The meaning of life", "Personal identity and change"],
+    correct: 3,
     difficulty: "hard",
     explanation: "The Ship of Theseus paradox explores questions of identity: if all parts of an object are gradually replaced, is it still the same object?"
   },
   {
     question: "Which logical fallacy involves attacking the person rather than their argument?",
-    options: ["Straw man", "Ad hominem", "False dichotomy", "Slippery slope"],
-    correct: 1,
+    options: ["Ad hominem", "Straw man", "False dichotomy", "Slippery slope"],
+    correct: 0,
     difficulty: "hard",
     explanation: "Ad hominem is a logical fallacy where someone attacks the character of the person making an argument rather than addressing the argument itself."
   },
@@ -393,29 +393,29 @@ const AdvancedQuizApp = () => {
   // Hard Set 5 - Advanced History & Culture
   {
     question: "Which treaty ended the Thirty Years' War?",
-    options: ["Treaty of Versailles", "Peace of Westphalia", "Treaty of Utrecht", "Congress of Vienna"],
-    correct: 1,
+    options: ["Treaty of Versailles", "Treaty of Utrecht", "Peace of Westphalia", "Congress of Vienna"],
+    correct: 2,
     difficulty: "hard",
     explanation: "The Peace of Westphalia (1648) ended the Thirty Years' War and established the modern concept of national sovereignty."
   },
   {
     question: "What was the primary cause of the Bronze Age collapse?",
-    options: ["Natural disasters", "Multiple factors including invasions and climate change", "Single massive war", "Economic depression"],
-    correct: 1,
+    options: ["Natural disasters", "Single massive war", "Economic depression", "Multiple factors including invasions and climate change"],
+    correct: 3,
     difficulty: "hard",
     explanation: "The Bronze Age collapse (c. 1200 BCE) was likely caused by multiple factors including climate change, invasions by Sea Peoples, and internal conflicts."
   },
   {
     question: "Which economic theory suggests that government spending can stimulate economic growth during recessions?",
-    options: ["Classical economics", "Keynesian economics", "Austrian economics", "Chicago school"],
-    correct: 1,
+    options: ["Keynesian economics", "Classical economics", "Austrian economics", "Chicago school"],
+    correct: 0,
     difficulty: "hard",
     explanation: "Keynesian economics, developed by John Maynard Keynes, advocates for government intervention through spending to manage economic cycles."
   },
   {
     question: "What is the difference between deductive and inductive reasoning?",
-    options: ["Deductive goes from general to specific, inductive from specific to general", "Deductive uses emotions, inductive uses logic", "Deductive is faster, inductive is slower", "There is no difference"],
-    correct: 0,
+    options: ["Deductive uses emotions, inductive uses logic", "Deductive goes from general to specific, inductive from specific to general", "Deductive is faster, inductive is slower", "There is no difference"],
+    correct: 1,
     difficulty: "hard",
     explanation: "Deductive reasoning starts with general principles and moves to specific conclusions, while inductive reasoning starts with specific observations and moves to general conclusions."
   },
@@ -430,15 +430,15 @@ const AdvancedQuizApp = () => {
   // Hard Set 6 - Advanced Biology & Chemistry
   {
     question: "What is the central dogma of molecular biology?",
-    options: ["DNA → RNA → Protein", "Protein → RNA → DNA", "RNA → DNA → Protein", "DNA → Protein → RNA"],
-    correct: 0,
+    options: ["Protein → RNA → DNA", "RNA → DNA → Protein", "DNA → Protein → RNA", "DNA → RNA → Protein"],
+    correct: 3,
     difficulty: "hard",
     explanation: "The central dogma describes the flow of genetic information: DNA is transcribed to RNA, which is then translated to proteins."
   },
   {
     question: "Which type of chemical bond involves the sharing of electron pairs?",
-    options: ["Ionic bond", "Covalent bond", "Hydrogen bond", "Van der Waals force"],
-    correct: 1,
+    options: ["Covalent bond", "Ionic bond", "Hydrogen bond", "Van der Waals force"],
+    correct: 0,
     difficulty: "hard",
     explanation: "Covalent bonds form when atoms share electron pairs to achieve stable electron configurations."
   },
@@ -451,15 +451,15 @@ const AdvancedQuizApp = () => {
   },
   {
     question: "Which process do plants use to convert atmospheric nitrogen into ammonia?",
-    options: ["Photosynthesis", "Nitrogen fixation", "Transpiration", "Cellular respiration"],
-    correct: 1,
+    options: ["Photosynthesis", "Transpiration", "Nitrogen fixation", "Cellular respiration"],
+    correct: 2,
     difficulty: "hard",
     explanation: "Nitrogen fixation is the process by which atmospheric nitrogen (N₂) is converted into ammonia (NH₃) by specialized bacteria in plant"
   },
   {
     question: "What is the name of the enzyme that unwinds DNA during replication?",
-    options: ["DNA polymerase", "DNA ligase", "Helicase", "Primase"],
-    correct: 2,
+    options: ["DNA polymerase", "DNA ligase", "Primase", "Helicase"],
+    correct: 3,
     difficulty: "hard",
     explanation: "Helicase is the enzyme responsible for unwinding the double helix structure of DNA by breaking hydrogen bonds between base pairs, creating the replication fork where DNA synthesis can occur."
   }
